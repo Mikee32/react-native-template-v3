@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Box, Text, Image, Heading, Center, VStack, HStack, ScrollView, FlatList, Pressable, Badge, Button} from 'native-base';
+import {Box, Actionsheet, useDisclose, Text, Image, Heading, Center, VStack, HStack, ScrollView, FlatList, Pressable, Badge, Button} from 'native-base';
 import {ImageBackground} from 'react-native';
 import {Dimensions} from 'react-native';
 import axios from 'axios';
@@ -11,6 +11,7 @@ import SellCard from '../Components/SellCard';
 
 import TopBar from '../Components/TopBar';
 import MessageCard from '../Components/MessageCard';
+import MessageSheet from '../Components/MessageSheet';
 
 const {height, width} = Dimensions.get('screen');
 
@@ -157,23 +158,12 @@ const HomeScreen = () => {
                 return <SellCard key={`chapter${item.chapterID}`} title={item.title} number={item.chapterNumber} bg={item.image} />;
               }}
             />
-            <SectionHeader title="Latest Messages" highlight=">" />
-            <FlatList
-              horizontal
-              pagingEnabled
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-              data={messages}
-              renderItem={({item}) => {
-                return <MessageCard title={item.name} message={item.message} date={item.date} thumb={item.thumb} />;
-              }}
-            />
           </Box>
         </VStack>
       </ScrollView>
+      {messages.map(message => (
+        <MessageSheet title={message.name} text={message.message} date={message.date} thumb={message.thumb} />
+      ))}
     </Box>
   );
 };

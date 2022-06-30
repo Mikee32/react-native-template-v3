@@ -1,15 +1,25 @@
 import React from 'react';
 import {Box, Heading, Text, Image, VStack} from 'native-base';
 import HTML from 'react-native-render-html';
+import {Dimensions} from 'react-native';
 
-export default function MessageCard({title, message, date, thumb}) {
+const {width, height} = Dimensions.get('screen');
+
+const MessageCard = ({title, text, date, thumb}) => {
   return (
-    <Box>
+    <Box bg="blueGray.50" rounded="sm" p="4">
       <VStack>
-        <Heading>{title}</Heading>
-        <Image source={{uri: thumb}} />
-        <HTML source={message} />
+        <Heading color="gray.800" fontSize="lg">
+          {title}
+        </Heading>
+        <Image source={{uri: thumb}} alt="message-image" />
+        <HTML source={{html: text}} contentWidth={width} tagsStyles={{h2: {fontSize: 16}, p: {margin: 0}}} />
+        <Text color="gray.400" italic>
+          {date}
+        </Text>
       </VStack>
     </Box>
   );
-}
+};
+
+export default MessageCard;

@@ -29,18 +29,6 @@ const DrawerNavigation = () => {
         headerShown: false,
       }}>
       <Drawer.Screen name="Home" component={TabNavigation} options={{drawerIcon: ({color}) => <FontAwesomePro name="home" size="18" color={color} />}} />
-      <Drawer.Screen name="Search" component={SearchScreen} options={{drawerIcon: ({color}) => <FontAwesomePro name="search" size="18" color={color} />}} />
-      <Drawer.Screen
-        name="Favorites"
-        component={FavoritesScreen}
-        options={{drawerIcon: ({color}) => <FontAwesomePro name="heart" size="18" color={color} />}}
-      />
-      <Drawer.Screen
-        name="Messages"
-        component={MessagesScreen}
-        options={{drawerIcon: ({color}) => <FontAwesomePro name="comment" size="18" color={color} />}}
-      />
-      <Drawer.Screen name="Profile" component={ProfileScreen} options={{drawerIcon: ({color}) => <FontAwesomePro name="user" size="18" color={color} />}} />
     </Drawer.Navigator>
   );
 };
