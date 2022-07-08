@@ -4,11 +4,12 @@ import TopBar from '../Components/TopBar';
 import Header from '../Components/Header';
 import axios from 'axios';
 import PromoteCard from '../Components/PromoteCard';
+import Background from '../Components/Background';
 
 export default function SellScreen() {
   const [sell, setSell] = useState([]);
   const [promote, setPromote] = useState([]);
-  const appId = 787;
+  const appId = 859;
 
   useEffect(() => {
     const promoteLoad = axios.get(`https://cms.travpromobile.com/api/app/sales-companion/?app_id=${appId}&type=fastfacts&format=json`);
@@ -24,10 +25,10 @@ export default function SellScreen() {
   }, []);
 
   return (
-    <Box _dark={{bg: 'gray.900'}} _light={{bg: 'blueGray.50'}} flex={1} safeAreaTop>
+    <Box _dark={{bg: 'gray.900'}} _light={{bg: 'blueGray.50'}} flex={1}>
       <TopBar />
-
-      <ScrollView contentContainerStyle={{paddingBottom: 150}} py="10" px="4">
+      <Background appId={859} />
+      <ScrollView contentContainerStyle={{paddingBottom: 150}} py="10" px="4" mt="-12">
         <Header title="Sell" subtitle="Answer client questions and close the sale." />
 
         <FlatList

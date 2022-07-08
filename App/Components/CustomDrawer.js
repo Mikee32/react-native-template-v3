@@ -21,7 +21,7 @@ export default function CustomDrawer(props) {
   const {colorMode} = useColorMode();
 
   const [appInfo, setAppInfo] = useState([]);
-  const appId = 787;
+  const appId = 859;
 
   useEffect(() => {
     axios.get(`https://cms.travpromobile.com/api/app/app-info/?app_id=${appId}&format=json`).then(result => {
@@ -33,7 +33,7 @@ export default function CustomDrawer(props) {
     <Box flex={1} _dark={{bg: 'gray.900'}} _light={{bg: 'blueGray.200'}}>
       <Box alignItems="center" space={1} height={height * 0.3}>
         <ImageBackground
-          source={{uri: appInfo.login_image}}
+          source={{uri: appInfo.question_header}}
           style={{
             width: '100%',
             height: '100%',
@@ -49,36 +49,10 @@ export default function CustomDrawer(props) {
           <Heading fontSize="md" my="2">
             Mike van de Louw
           </Heading>
-          <HStack mb="-2">
-            <Image source={badgeBronze} h="8" w="8" mr="1" resizeMode="contain" opacity={0.8} />
-            <Image source={badgeSilver} h="8" w="8" resizeMode="contain" opacity={0.8} />
-          </HStack>
-          <Text _dark={{color: 'blueGray.100'}} _light={{color: 'gray.900'}} fontWeight="bold" fontSize="md"></Text>
-          <Text _dark={{color: 'gray.300'}} _light={{color: 'gray.900'}} fontWeight="400" fontSize="sm" italic bold mb="5"></Text>
+
           <ThemeToggle />
         </ImageBackground>
       </Box>
-      <VStack height={height * 0.2} mx="4">
-        <Text bold mb="-2">
-          180 points
-        </Text>
-        <HStack alignItems="center">
-          <Progress
-            bg="coolGray.100"
-            _filledTrack={{
-              bg: '#FFD700',
-            }}
-            rounded="sm"
-            size="xs"
-            w="80%"
-            value={75}
-          />
-          <Image source={badgeGold} h="10" w="10" ml="2" opacity={0.5} resizeMode="contain" />
-        </HStack>
-        <Text mt="-3" fontSize="xs" color="gray.400">
-          120 points until Gold Rank
-        </Text>
-      </VStack>
       <DrawerContentScrollView {...props} style={{marginTop: -40}}>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
@@ -98,6 +72,7 @@ export default function CustomDrawer(props) {
             },
           ],
         }}
+        onPress={() => navigation.navigate('Welcome')}
         endIcon={<Icon as={<FontAwesomePro name="sign-out-alt" color={colorMode === 'light' ? 'white' : 'black'} size={20} />} />}>
         <Text _light={{color: 'blueGray.50'}} _dark={{color: 'gray.900'}} fontSize="sm">
           Log Out

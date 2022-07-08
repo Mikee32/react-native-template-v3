@@ -5,7 +5,7 @@ import {createImgixUrl} from '../Config/HelperFunctions';
 
 import LinearGradient from 'react-native-linear-gradient';
 
-export default function PromoteCard({title, number, bg, appId = 787, home}) {
+export default function PromoteCard({title, number, bg, appId = 859, home}) {
   const navigation = useNavigation();
 
   return (

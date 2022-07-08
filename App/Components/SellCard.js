@@ -5,11 +5,11 @@ import {createImgixUrl} from '../Config/HelperFunctions';
 
 import LinearGradient from 'react-native-linear-gradient';
 
-export default function SellCard({title, number, bg, appId = 787}) {
+export default function SellCard({title, number, bg, appId = 859}) {
   const navigation = useNavigation();
 
   return (
-    <Pressable rounded="sm" overflow="hidden" _dark={{bg: 'gray.900'}} _light={{bg: 'blueGray.100'}} w={150} h={160} mb="4" mr="4" shadow={4}>
+    <Pressable rounded="sm" overflow="hidden" _dark={{bg: 'gray.900'}} _light={{bg: 'blueGray.100'}} w={180} h={120} mb="4" mr="4" shadow={4}>
       <Image position="absolute" top="0" h="100%" w="100%" alt="Tile" source={{uri: createImgixUrl(appId, bg, {height: 300, width: 600})}} />
 
       <LinearGradient

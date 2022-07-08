@@ -20,7 +20,7 @@ const HomeScreen = () => {
   const [chapters, setChapters] = useState([]);
   const [sell, setSell] = useState([]);
   const [promote, setPromote] = useState([]);
-  const appId = 787;
+  const appId = 859;
 
   useEffect(() => {
     axios.get(`https://cms.travpromobile.com/api/app/app-info/?app_id=${appId}&format=json`).then(result => {
@@ -68,7 +68,7 @@ const HomeScreen = () => {
       <ScrollView contentContainerStyle={{paddingBottom: 200}}>
         <VStack>
           <ImageBackground source={{uri: appInfo.splash_screen}} style={{height: height * 0.6, width: '100%'}} resizeMode="cover">
-            <Image alt="logo" source={{uri: appInfo.logo}} h="20" w="20" position="absolute" top="32" alignSelf="center" />
+            <Image alt="logo" source={{uri: appInfo.logo_white}} h="32" w="32" position="absolute" top="32" alignSelf="center" resizeMode="contain" />
             <LinearGradient
               start={{x: 0, y: 1}}
               end={{x: 0, y: 0.3}}
@@ -81,13 +81,13 @@ const HomeScreen = () => {
               }}
             />
             <VStack position="absolute" bottom="-20" alignSelf="center" justifyContent="center" alignItems="center">
-              <Heading fontSize="3xl" color={appInfo.primary_color} mb="4">
+              <Heading fontSize="3xl" color="primary.400" mb="4">
                 {appInfo.landing_quote}
               </Heading>
               <Heading fontSize="md" mt="1" textTransform="uppercase">
                 {appInfo.appName}
               </Heading>
-              <Heading fontSize="xs" textAlign="center" mt="1" color="gray.300" w="80%">
+              <Heading fontSize="sm" textAlign="center" mt="1" color="gray.300" w="70%" italic>
                 {appInfo.appDescriptionShort}
               </Heading>
             </VStack>
@@ -130,20 +130,8 @@ const HomeScreen = () => {
               }}
             />
           </Box>
-          <Box height={height * 0.35} width={width} mt="6">
-            <Image source={{uri: 'https://front.travpromobile.com/880/bg.jpg'}} style={{height: 200, width: '100%'}} />
-            <Heading fontSize="xl" mt="4" textAlign="center">
-              Canada Specialist XPO
-            </Heading>
-            <Text textAlign="center" my="1">
-              June 21 & 22, 2022
-            </Text>
-            <Text textAlign="center">14:00 – 18:00</Text>
-            <Button w="25%" alignSelf="center" mt="4">
-              <Text>Visit Show</Text>
-            </Button>
-          </Box>
-          <Box pl="3" mt="10">
+
+          <Box pl="3" mt="4">
             <SectionHeader title="Your Favorite Items" highlight=">" />
             <FlatList
               horizontal

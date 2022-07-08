@@ -6,7 +6,7 @@ import {createImgixUrl} from '../Config/HelperFunctions';
 
 const {height, width} = Dimensions.get('screen');
 
-export default function ChapterCard({title, number, bg, appId = 787, type, home}) {
+export default function ChapterCard({title, number, bg, appId = 859, type, home}) {
   return (
     <Pressable m="2">
       <Box width={home ? width * 0.8 : '100%'} height={170} rounded="sm" overflow="hidden">
@@ -48,7 +48,7 @@ export default function ChapterCard({title, number, bg, appId = 787, type, home}
             />
           </Box>
           <Box position="absolute" top="2" right="2">
-            {type === true && <Badge colorScheme="error">Foundation</Badge>}
+            {type === true && <Badge colorScheme="info">Foundation</Badge>}
           </Box>
         </ImageBackground>
       </Box>
