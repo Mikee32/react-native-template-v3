@@ -81,7 +81,7 @@ const HomeScreen = () => {
               }}
             />
             <VStack position="absolute" bottom="-20" alignSelf="center" justifyContent="center" alignItems="center">
-              <Heading fontSize="3xl" color="primary.400" mb="4">
+              <Heading fontSize="2xl" color="primary.400" mb="4">
                 {appInfo.landing_quote}
               </Heading>
               <Heading fontSize="md" mt="1" textTransform="uppercase">

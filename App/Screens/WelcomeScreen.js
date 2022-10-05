@@ -43,6 +43,13 @@ export default function WelcomeScreen() {
         <Button
           bg="primary.400"
           onPress={() => navigation.navigate('Home')}
+          _pressed={{
+            transform: [
+              {
+                scale: 0.96,
+              },
+            ],
+          }}
           py="2.5"
           px="20"
           rounded="full"
@@ -57,6 +64,13 @@ export default function WelcomeScreen() {
           py="2.5"
           px="20"
           onPress={() => navigation.navigate('Login')}
+          _pressed={{
+            transform: [
+              {
+                scale: 0.96,
+              },
+            ],
+          }}
           rounded="full"
           borderBottomWidth={5}
           borderLeftWidth={0.5}
